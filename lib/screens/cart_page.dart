@@ -3,6 +3,7 @@ import 'package:avocado/services/firebase_services.dart';
 import 'package:avocado/widgets/custom_action_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -11,6 +12,23 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   FirebaseServices _firebaseServices = FirebaseServices();
+  CollectionReference ref = FirebaseFirestore.instance.collection('Products');
+  TextEditingController name = TextEditingController();
+  TextEditingController price = TextEditingController();
+  TextEditingController orderAddress = TextEditingController();
+  TextEditingController nameSurname = TextEditingController();
+  String paymentType;
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  orderAdd() async {
+    FirebaseFirestore.instance.collection("Orders").doc(orderAddress.text).set({
+      'name': name.text,
+      'price': price.text,
+      'orderAddress': orderAddress.text,
+      'paymentType': paymentType,
+      'nameSurname': nameSurname.text,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

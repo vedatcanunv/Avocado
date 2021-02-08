@@ -1,3 +1,4 @@
+import 'package:avocado/user_login_register/user_login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,10 @@ class _BottomTabsState extends State<BottomTabs> {
             imagePath: "assets/images/tab_logout.png",
             selected: _selectedTab == 3 ? true : false,
             onPressed: () {
-              FirebaseAuth.instance.signOut();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
             },
           )
         ],
