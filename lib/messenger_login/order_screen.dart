@@ -29,16 +29,14 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.green,
         elevation: 0,
         title: Text("Mevcut Siparişler"),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/farm.jpg'), fit: BoxFit.fill)),
+        color: Colors.green[100],
         child: StreamBuilder(
             stream: ref.snapshots(),
             builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -64,7 +62,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                 builder: (context) => Dialog(
                                       child: Container(
                                         width: 300,
-                                        color: Colors.deepPurple[400],
+                                        color: Colors.green[400],
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: ListView(
@@ -77,10 +75,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 enabled: false,
                                                 controller: productName,
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF000000),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -98,10 +96,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 enabled: false,
                                                 controller: price,
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -119,10 +117,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 enabled: false,
                                                 controller: nameSurname,
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -140,10 +138,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 enabled: false,
                                                 controller: orderAddress,
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -161,10 +159,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 enabled: false,
                                                 controller: paymentType,
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -181,7 +179,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                               FlatButton(
                                                   color: Colors.green,
                                                   child: Text("Teslim Alındı"),
-                                                  textColor: Colors.white,
+                                                  textColor: Colors.green[900],
                                                   onPressed: () {
                                                     orderList();
                                                   }),
@@ -194,28 +192,28 @@ class _OrderScreenState extends State<OrderScreen> {
                         ),
                         title: Text(
                           "Ürün Adı : " + orders['productName'] + "",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.green[900]),
                         ),
                         subtitle: Form(
                           child: Column(
                             children: <Widget>[
                               Text(
                                 "Ürün Fiyatı : " + orders['price'] + "",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.green[900]),
                               ),
                               Text(
                                 "Siparis Adresi : " +
                                     orders['orderAddress'] +
                                     "",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.green[900]),
                               ),
                               Text(
                                 "Kullanıcı Adı : " + orders['nameSurname'] + "",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.green[900]),
                               ),
                               Text(
                                 "Ödeme Türü : " + orders['paymentType'] + "",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.green[900]),
                               ),
                             ],
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -227,7 +225,7 @@ class _OrderScreenState extends State<OrderScreen> {
               } else {
                 return Text(
                   "Olmuyor",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.green[900]),
                 );
               }
             }),

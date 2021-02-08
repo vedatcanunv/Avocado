@@ -59,12 +59,13 @@ class _ProductUpdateState extends State<ProductUpdate> {
       appBar: AppBar(
         backgroundColor: Colors.green,
         elevation: 0,
+        title: Text("Ürün Güncelleme Ekranı"),
       ),
       backgroundColor: Colors.green[100],
       body: StreamBuilder(
           stream: ref.snapshots(),
           builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasData) {
+            if (!snapshot.hasData) {
               var productLength = snapshot.data.docs.length;
               return ListView.builder(
                   itemCount: productLength,
@@ -93,14 +94,14 @@ class _ProductUpdateState extends State<ProductUpdate> {
                                                 : Image.file(_image),
                                             TextField(
                                               controller: name,
-                                              style:
-                                                  TextStyle(color: Colors.blue),
-                                              cursorColor: Color(0xFF9b9b9b),
+                                              style: TextStyle(
+                                                  color: Colors.green),
+                                              cursorColor: Color(0xFF1B5E20),
                                               decoration: InputDecoration(
                                                   hintText:
                                                       "Ürünün Adını Giriniz",
                                                   hintStyle: TextStyle(
-                                                    color: Color(0xFF9b9b9b),
+                                                    color: Color(0xFF1B5E20),
                                                     fontSize: 15,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -108,14 +109,14 @@ class _ProductUpdateState extends State<ProductUpdate> {
                                             ),
                                             TextField(
                                               controller: price,
-                                              style:
-                                                  TextStyle(color: Colors.blue),
-                                              cursorColor: Color(0xFF9b9b9b),
+                                              style: TextStyle(
+                                                  color: Colors.green),
+                                              cursorColor: Color(0xFF1B5E20),
                                               decoration: InputDecoration(
                                                 hintText:
                                                     "Ürün Fiyatını Giriniz",
                                                 hintStyle: TextStyle(
-                                                  color: Color(0xFF9b9b9b),
+                                                  color: Color(0xFF1B5E20),
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.normal,
                                                 ),
@@ -123,23 +124,23 @@ class _ProductUpdateState extends State<ProductUpdate> {
                                             ),
                                             TextField(
                                               controller: kilo,
-                                              style:
-                                                  TextStyle(color: Colors.blue),
-                                              cursorColor: Color(0xFF9b9b9b),
+                                              style: TextStyle(
+                                                  color: Colors.green),
+                                              cursorColor: Color(0xFF1B5E20),
                                               decoration: InputDecoration(
                                                 hintText:
                                                     "Ürünün Miktarını Giriniz",
                                                 hintStyle: TextStyle(
-                                                  color: Color(0xFF9b9b9b),
+                                                  color: Color(0xFF1B5E20),
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                               ),
                                             ),
                                             FlatButton(
-                                                color: Colors.blue,
+                                                color: Colors.green,
                                                 child: Text("Resim Yükle"),
-                                                textColor: Colors.white,
+                                                textColor: Colors.green[200],
                                                 onPressed: getImage),
                                             SizedBox(
                                               height: 10,
@@ -147,7 +148,7 @@ class _ProductUpdateState extends State<ProductUpdate> {
                                             FlatButton(
                                                 color: Colors.green,
                                                 child: Text("Ürünü Güncelle"),
-                                                textColor: Colors.white,
+                                                textColor: Colors.green[200],
                                                 onPressed: () {
                                                   productUpdate(
                                                       snapshot, index);
@@ -156,9 +157,9 @@ class _ProductUpdateState extends State<ProductUpdate> {
                                               height: 10,
                                             ),
                                             FlatButton(
-                                                color: Colors.red,
+                                                color: Colors.green[900],
                                                 child: Text("Ürünü Sil"),
-                                                textColor: Colors.white,
+                                                textColor: Colors.green[200],
                                                 onPressed: () {
                                                   snapshot.data.docs[index]
                                                       .reference
@@ -173,17 +174,17 @@ class _ProductUpdateState extends State<ProductUpdate> {
                       ),
                       title: Text(
                         products['name'],
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.green[900]),
                       ),
                       subtitle: Column(
                         children: <Widget>[
                           Text(
                             products['price'],
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.green[900]),
                           ),
                           Text(
                             products['kilo'],
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.green[900]),
                           ),
                         ],
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -200,7 +201,7 @@ class _ProductUpdateState extends State<ProductUpdate> {
             } else {
               return Text(
                 "Olmuyor",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.green[900]),
               );
             }
           }),

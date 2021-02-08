@@ -35,12 +35,9 @@ class _OrderProcessingState extends State<OrderProcessing> {
         title: Text("Siparişleri Görüntüle"),
       ),
       body: Container(
+        color: Colors.green[100],
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/field.png'),
-                fit: BoxFit.fill)),
         child: StreamBuilder(
             stream: ref.snapshots(),
             builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -53,7 +50,7 @@ class _OrderProcessingState extends State<OrderProcessing> {
                       return ListTile(
                         leading: IconButton(
                           icon: Icon(Icons.post_add),
-                          color: Colors.purple,
+                          color: Colors.green,
                           iconSize: 40,
                           onPressed: () {
                             productName.text = orders['productName'];
@@ -67,7 +64,7 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                 builder: (context) => Dialog(
                                       child: Container(
                                         width: 300,
-                                        color: Colors.deepPurple,
+                                        color: Colors.green[200],
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: ListView(
@@ -80,10 +77,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                 enabled: false,
                                                 controller: productName,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -101,10 +98,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                 enabled: false,
                                                 controller: price,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -122,10 +119,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                 enabled: false,
                                                 controller: nameSurname,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -143,10 +140,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                 enabled: false,
                                                 controller: orderAddress,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -164,10 +161,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                 enabled: false,
                                                 controller: paymentType,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -184,10 +181,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                               TextField(
                                                 controller: messengerName,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.green[900],
                                                     fontWeight:
                                                         FontWeight.bold),
-                                                cursorColor: Color(0xFF9b9b9b),
+                                                cursorColor: Color(0xFF1B5E20),
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                     borderRadius:
@@ -198,7 +195,7 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                   ),
                                                   hintText: "Kurye Adı Giriniz",
                                                   hintStyle: TextStyle(
-                                                    color: Color(0xFF9b9b9b),
+                                                    color: Color(0xFF1B5E20),
                                                     fontSize: 15,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -209,10 +206,10 @@ class _OrderProcessingState extends State<OrderProcessing> {
                                                 height: 8,
                                               ),
                                               FlatButton(
-                                                  color: Colors.green,
+                                                  color: Colors.green[500],
                                                   child: Text(
                                                       "Kurye Ekranına Gönder"),
-                                                  textColor: Colors.white,
+                                                  textColor: Colors.green[900],
                                                   onPressed: () {
                                                     orderList();
                                                   }),
@@ -225,28 +222,28 @@ class _OrderProcessingState extends State<OrderProcessing> {
                         ),
                         title: Text(
                           "Ürün Adı : " + orders['productName'] + "",
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.green),
                         ),
                         subtitle: Form(
                           child: Column(
                             children: <Widget>[
                               Text(
                                 "Ürün Fiyatı : " + orders['price'] + "",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.green),
                               ),
                               Text(
                                 "Siparis Adresi : " +
                                     orders['orderAddress'] +
                                     "",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.green),
                               ),
                               Text(
                                 "Kullanıcı Adı : " + orders['nameSurname'] + "",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.green),
                               ),
                               Text(
                                 "Ödeme Türü : " + orders['paymentType'] + "",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.green),
                               ),
                             ],
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -258,7 +255,7 @@ class _OrderProcessingState extends State<OrderProcessing> {
               } else {
                 return Text(
                   "Olmuyor",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.green),
                 );
               }
             }),

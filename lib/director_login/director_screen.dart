@@ -1,6 +1,7 @@
 import 'package:avocado/messenger_login/messenger_screen.dart';
 import 'package:avocado/order_processing/order_processing.dart';
 import 'package:avocado/product_operations/product_add.dart';
+import 'package:avocado/product_operations/product_update.dart';
 import 'package:flutter/material.dart';
 
 class DirectorScreen extends StatefulWidget {
@@ -38,7 +39,23 @@ class _DirectorScreenState extends State<DirectorScreen> {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (_) => ProductAdd()));
                       },
-                      child: Text("Ürün İşlemleri"),
+                      child: Text("Ürün Ekleme"),
+                      textColor: Colors.green[900],
+                      color: Colors.green[200]),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(10),
+                child: SizedBox(
+                  width: 210,
+                  height: 40,
+                  child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => ProductUpdate()));
+                      },
+                      child: Text("Ürün Güncelleme"),
                       textColor: Colors.green[900],
                       color: Colors.green[200]),
                 ),

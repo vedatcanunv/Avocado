@@ -1,3 +1,5 @@
+import 'package:avocado/messenger_operations/messenger_add.dart';
+import 'package:avocado/messenger_operations/messenger_update.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:avocado/messenger_login/order_screen.dart';
@@ -71,6 +73,64 @@ class _MessengerScreenState extends State<MessengerScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => OrderScreen()));
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                )),
+            Container(
+                padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 150,
+                      height: 40,
+                      child: FlatButton(
+                        color: Colors.green[400],
+                        textColor: Colors.white,
+                        child: Text(
+                          "Kurye Güncelle",
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              //Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MessengerUpdate()));
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                )),
+            Container(
+                padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 150,
+                      height: 40,
+                      child: FlatButton(
+                        color: Colors.green[400],
+                        textColor: Colors.white,
+                        child: Text(
+                          "Kurye Ekle",
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              //Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MessengerOperations()));
                         },
                       ),
                     ),

@@ -67,8 +67,9 @@ class MessengerOperationsState extends State<MessengerOperations> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Kurye Ekleme Ekranına Hoşgeldiniz"),
+        title: Text("Kurye Ekleme Ekranı"),
         elevation: 0,
+        backgroundColor: Colors.green,
         actions: <Widget>[
           PopupMenuButton<Widget>(
             itemBuilder: (BuildContext context) => <PopupMenuEntry<Widget>>[
@@ -96,11 +97,9 @@ class MessengerOperationsState extends State<MessengerOperations> {
         ],
       ),
       body: Container(
+        color: Colors.green[100],
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('images/tree.png'), fit: BoxFit.fill)),
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
@@ -117,14 +116,14 @@ class MessengerOperationsState extends State<MessengerOperations> {
                         ),
                   TextField(
                     controller: nameSurname,
-                    style: TextStyle(color: Colors.blue),
-                    cursorColor: Color(0xFF9b9b9b),
+                    style: TextStyle(color: Colors.green),
+                    cursorColor: Color(0xFF1B5E20),
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.person),
                         hintText: "Kuryenin Adı ve Soyadı",
                         hintStyle: TextStyle(
-                          color: Color(0xFF9b9b9b),
+                          color: Color(0xFF1B5E20),
                           fontSize: 15,
                           fontWeight: FontWeight.normal,
                         )),
@@ -134,14 +133,14 @@ class MessengerOperationsState extends State<MessengerOperations> {
                   ),
                   TextField(
                     controller: phoneNumber,
-                    style: TextStyle(color: Colors.blue),
-                    cursorColor: Color(0xFF9b9b9b),
+                    style: TextStyle(color: Colors.green),
+                    cursorColor: Color(0xFF1B5E20),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.mobile_friendly),
                       hintText: "Kuryenin Telefon Numarası",
                       hintStyle: TextStyle(
-                        color: Color(0xFF9b9b9b),
+                        color: Color(0xFF1B5E20),
                         fontSize: 15,
                         fontWeight: FontWeight.normal,
                       ),
@@ -152,8 +151,8 @@ class MessengerOperationsState extends State<MessengerOperations> {
                   ),
                   FlatButton(
                     minWidth: 250,
-                    color: Colors.black,
-                    textColor: Colors.white,
+                    color: Colors.green[400],
+                    textColor: Colors.green[900],
                     child: Text("İşe Giriş Tarihini Seç"),
                     onPressed: () async {
                       selectedDate = await selectDate(context);
@@ -172,18 +171,18 @@ class MessengerOperationsState extends State<MessengerOperations> {
                   ),
                   FlatButton(
                       minWidth: 250,
-                      color: Colors.blue,
+                      color: Colors.green[400],
                       child: Text("Kurye Fotoğrafı Yükle"),
-                      textColor: Colors.white,
+                      textColor: Colors.green[900],
                       onPressed: getImage),
                   SizedBox(
                     height: 10,
                   ),
                   FlatButton(
                     minWidth: 250,
-                    color: Colors.green,
+                    color: Colors.green[400],
                     child: Text("Kuryeyi Ekle"),
-                    textColor: Colors.white,
+                    textColor: Colors.green[900],
                     onPressed: productAdd,
                   ),
                 ],

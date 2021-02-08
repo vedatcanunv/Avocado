@@ -73,14 +73,15 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
     DateTime selectedDate = DateTime.now();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.green,
         elevation: 0,
+        title: Text("Kurye Güncelleme Ekranı"),
       ),
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.green[100],
       body: StreamBuilder(
           stream: ref.snapshots(),
           builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasData) {
+            if (!snapshot.hasData) {
               var messengerLenght = snapshot.data.docs.length;
               return ListView.builder(
                   itemCount: messengerLenght,
@@ -98,7 +99,7 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                               context: context,
                               builder: (context) => Dialog(
                                     child: Container(
-                                      color: Colors.white,
+                                      color: Colors.green,
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: ListView(
@@ -109,16 +110,16 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                                                 : Image.file(_image),
                                             TextFormField(
                                               controller: nameSurname,
-                                              style:
-                                                  TextStyle(color: Colors.blue),
-                                              cursorColor: Color(0xFF9b9b9b),
+                                              style: TextStyle(
+                                                  color: Colors.green),
+                                              cursorColor: Color(0xFF1B5E20),
                                               decoration: InputDecoration(
                                                   prefixIcon:
                                                       Icon(Icons.person),
                                                   hintText:
                                                       "Kuryenin Adı ve Soyadı",
                                                   hintStyle: TextStyle(
-                                                    color: Color(0xFF9b9b9b),
+                                                    color: Color(0xFF1B5E20),
                                                     fontSize: 15,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -129,24 +130,24 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                                             ),
                                             TextFormField(
                                               controller: phoneNumber,
-                                              style:
-                                                  TextStyle(color: Colors.blue),
-                                              cursorColor: Color(0xFF9b9b9b),
+                                              style: TextStyle(
+                                                  color: Colors.green),
+                                              cursorColor: Color(0xFF1B5E20),
                                               decoration: InputDecoration(
                                                 prefixIcon:
                                                     Icon(Icons.mobile_friendly),
                                                 hintText:
                                                     "Kuryenin Telefon Numarası",
                                                 hintStyle: TextStyle(
-                                                  color: Color(0xFF9b9b9b),
+                                                  color: Color(0xFF1B5E20),
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                               ),
                                             ),
                                             FlatButton(
-                                              color: Colors.blue,
-                                              textColor: Colors.white,
+                                              color: Colors.green,
+                                              textColor: Colors.green[200],
                                               child: Text(
                                                   "İşe Giriş Tarihini Seç"),
                                               onPressed: () async {
@@ -163,10 +164,10 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                                               },
                                             ),
                                             FlatButton(
-                                                color: Colors.blue,
+                                                color: Colors.green,
                                                 child: Text(
                                                     "Kurye Fotoğrafını Yükle"),
-                                                textColor: Colors.white,
+                                                textColor: Colors.green[200],
                                                 onPressed: getImage),
                                             SizedBox(
                                               height: 10,
@@ -174,7 +175,7 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                                             FlatButton(
                                                 color: Colors.green,
                                                 child: Text("Kuryeyi Güncelle"),
-                                                textColor: Colors.white,
+                                                textColor: Colors.green[200],
                                                 onPressed: () {
                                                   productUpdate(
                                                       snapshot, index);
@@ -183,9 +184,9 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                                               height: 10,
                                             ),
                                             FlatButton(
-                                                color: Colors.red,
+                                                color: Colors.green[900],
                                                 child: Text("Kuryeyi Sil"),
-                                                textColor: Colors.white,
+                                                textColor: Colors.green[200],
                                                 onPressed: () {
                                                   snapshot.data.docs[index]
                                                       .reference
@@ -200,17 +201,17 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
                       ),
                       title: Text(
                         messengers['nameSurname'],
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.green[900]),
                       ),
                       subtitle: Column(
                         children: <Widget>[
                           Text(
                             messengers['phoneNumber'],
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.green[900]),
                           ),
                           Text(
                             messengers['selectedDate'],
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.green[900]),
                           ),
                         ],
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -227,7 +228,7 @@ class _MessengerUpdateState extends State<MessengerUpdate> {
             } else {
               return Text(
                 "Hiçbir Kurye Bulunamadı",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.green[900]),
               );
             }
           }),
