@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'director_screen.dart';
+
 class DirectorLogin extends StatefulWidget {
   @override
   _DirectorLoginState createState() => _DirectorLoginState();
@@ -121,7 +123,7 @@ class _DirectorLoginState extends State<DirectorLogin> {
         UserCredential user = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DirectorLogin()));
+            context, MaterialPageRoute(builder: (context) => DirectorScreen()));
       } catch (user) {
         print(user.toString());
       }

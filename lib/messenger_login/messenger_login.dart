@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'messenger_screen.dart';
+
 class MessengerLogin extends StatefulWidget {
   @override
   _MessengerLoginState createState() => _MessengerLoginState();
@@ -18,8 +20,8 @@ class _MessengerLoginState extends State<MessengerLogin> {
       ),
       body: Container(
         color: Colors.green[50],
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: Form(
+          key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -41,8 +43,6 @@ class _MessengerLoginState extends State<MessengerLogin> {
                           onSaved: (value) => _email = value,
                           style: TextStyle(color: Color(0xFF000000)),
                           cursorColor: Color(0xFF9b9b9b),
-                          keyboardType: TextInputType.text,
-                          obscureText: true,
                           decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.email,
@@ -122,10 +122,10 @@ class _MessengerLoginState extends State<MessengerLogin> {
       try {
         UserCredential user = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MessengerLogin()));
-      } catch (e) {
-        print(e.toString());
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => MessengerScreen()));
+      } catch (user) {
+        print(user.toString());
       }
     }
   }
